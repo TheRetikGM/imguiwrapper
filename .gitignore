@@ -1,0 +1,13 @@
+build
+builddir
+subprojects/*
+!subprojects/glad
+!subprojects/glm.wrap
+!subprojects/imgui
+!subprojects/nlohmann_json
+!subprojects/yaml-cpp.wrap
+.vscode
+.vs
+.idea
+.cache
+imgui.ini
