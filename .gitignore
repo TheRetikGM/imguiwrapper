@@ -4,7 +4,7 @@ subprojects/*
 !subprojects/glad
 !subprojects/glm.wrap
 !subprojects/imgui
-!subprojects/nlohmann_json
+!subprojects/nlohmann_json.wrap
 !subprojects/yaml-cpp.wrap
 .vscode
 .vs
