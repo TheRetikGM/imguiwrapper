@@ -1,4 +1,4 @@
-project('imgui', 'cpp', license: 'MIT', version: 'git-c191faf0ba478e9c58a69c63306986a21ebfb6e4', meson_version: '>=0.50.0')
+project('imgui', 'cpp', license: 'MIT', version: 'git-c191faf0ba478e9c58a69c63306986a21ebfb6e4', meson_version: '>=0.54.0')
 
 include_dirs = include_directories('.', 'backends')
 sources = files(
@@ -44,3 +44,5 @@ imgui_dep = declare_dependency(
   include_directories: include_dirs,
   link_with: imgui,
 )
+
+meson.override_dependency('imgui', imgui_dep)

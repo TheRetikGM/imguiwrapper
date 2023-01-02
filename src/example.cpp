@@ -15,7 +15,7 @@
 #include <sstream>
 #include <map>
 
-#include <imguiwrapper/wrapper.hpp>
+#include <imguiwrapper.hpp>
 #include <nlohmann/json.hpp>
 
 #define perr(fmt) fprintf(stderr, fmt)
@@ -26,6 +26,7 @@
 
 using json = nlohmann::json;
 typedef std::map<std::string, std::string> Config;
+using namespace ImWrap;
 
 struct Input {
   std::string id = "";
@@ -309,7 +310,7 @@ int main()
 
   try {
     context = Context::Create(def);
-    run_with_context(context, c);
+    run(context, c);
   } catch (const std::runtime_error& e) {
     std::cerr << e.what() << std::endl;
     return 1;

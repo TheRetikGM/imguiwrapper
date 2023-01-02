@@ -1,4 +1,5 @@
 option('nlohmann_json', type : 'feature', value : 'disabled')
 option('glm', type : 'feature', value : 'disabled')
 option('yaml-cpp', type : 'feature', value : 'disabled')
-option('build-examples', type : 'boolean', value : true)
+option('build-examples', type : 'boolean', value : false)
+option('implot', type : 'feature', value : 'disabled')

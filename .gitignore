@@ -6,8 +6,10 @@ subprojects/*
 !subprojects/imgui
 !subprojects/nlohmann_json.wrap
 !subprojects/yaml-cpp.wrap
+!subprojects/implot
 .vscode
 .vs
 .idea
 .cache
 imgui.ini
+.meson-subproject-wrap-hash.txt

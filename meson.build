@@ -1,16 +1,17 @@
 project('ImGui Wrapper', 'cpp',
   version : '0.1',
   default_options : ['warning_level=3',
-                     'cpp_std=c++17'])
+                     'cpp_std=c++20'])
 
 inc = include_directories('include')
 
 deps = [
-  subproject('imgui', default_options : ['default_library=static']).get_variable('imgui_dep'),
+  dependency('imgui'),
   subproject('glad', default_options : ['default_library=static']).get_variable('glad_dep'),
   dependency('glfw3'),
   dependency('nlohmann_json', required : get_option('nlohmann_json')),
   dependency('glm', required : get_option('glm')),
+  dependency('implot', required : get_option('implot'))
 ]
 
 if get_option('yaml-cpp').enabled()
@@ -24,5 +25,15 @@ if get_option('build-examples')
     include_directories : inc)
 endif
 
+cppargs = []
+if get_option('implot').enabled()
+  cppargs += '-DIMGUIWRAPPER_IMPLOT'
+endif
+
 imguiwrapper_inc = inc
-imguiwrapper_dep = declare_dependency(dependencies : deps, include_directories : inc)
+imguiwrapper_dep = declare_dependency(
+  compile_args : cppargs,
+  dependencies : deps, 
+  include_directories : inc
+)
+meson.override_dependency('imguiwrapper', imguiwrapper_dep)
