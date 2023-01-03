@@ -10,6 +10,7 @@ My wrapper C++ project for Dear ImGui and more.
 - [ImPlot](https://github.com/epezent/implot)
 - [Nlohmann's Json](https://github.com/nlohmann/json)
 - [YAML cpp](https://github.com/jbeder/yaml-cpp)
+- Glad with OpenGL 3.3 core support
 
 # Code example
 This is how you would create simple ImGui + ImPlot application.
