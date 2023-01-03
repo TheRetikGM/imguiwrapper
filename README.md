@@ -105,11 +105,12 @@ int main()
     meson compile -C build
 
 ## Build Windows
-Install:
-  - meson using python's pip (winget install python3)
+- Install:
+  - python3 (for pip) -- `winget python3`
+  - meson -- `pip install meson`
   - Windows Visual Studio C++ build tools
 
 In Developer console run:
 
-    meson setup build
-    meson compile -C build -Dbuildtype=release
+    meson setup build -Dbuildtype=release
+    meson compile -C build
