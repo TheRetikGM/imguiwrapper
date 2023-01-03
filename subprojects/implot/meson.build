@@ -13,7 +13,7 @@ depends = [
   dependency('imgui')
 ]
 
-implot = library('implot',
+implot = static_library('implot',
   sources,
   dependencies : depends,
   include_directories : include_dirs

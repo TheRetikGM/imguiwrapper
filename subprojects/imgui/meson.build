@@ -1,4 +1,7 @@
-project('imgui', 'cpp', license: 'MIT', version: 'git-c191faf0ba478e9c58a69c63306986a21ebfb6e4', meson_version: '>=0.54.0')
+project('imgui', 'cpp', 
+	license : 'MIT', 
+	version : 'git-c191faf0ba478e9c58a69c63306986a21ebfb6e4', 
+	meson_version : '>=0.54.0')
 
 include_dirs = include_directories('.', 'backends')
 sources = files(
@@ -22,15 +25,18 @@ if libgl_dep.found()
 endif
 
 # platform backends
-glfw_dep = dependency('glfw3', required: true) 
+glfw_dep = dependency('glfw3', static : (build_machine.system() == 'windows'), required: true) 
 if glfw_dep.found()
   sources += 'backends/imgui_impl_glfw.cpp'
   dependencies += glfw_dep
 endif
 
-api = '-DIMGUI_API=__attribute__((visibility("default")))'
+api = []
+if build_machine.system() != 'windows'
+	api += '-DIMGUI_API=__attribute__((visibility("default")))'
+endif
 
-imgui = library(
+imgui = static_library(
   'imgui',
   sources,
   cpp_args: api,

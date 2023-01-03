@@ -38,8 +38,8 @@ namespace ImWrap
 
   struct ContextDefinition
   {
-    uint32_t window_width = 600;
-    uint32_t window_height = 800;
+    uint32_t window_width = 800;
+    uint32_t window_height = 600;
     std::string window_title = "ImGui wrapper!";
     std::map<int, int> window_hints = { 
       { GLFW_CONTEXT_VERSION_MAJOR, 3 },  
