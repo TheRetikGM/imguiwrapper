@@ -13,6 +13,8 @@ My wrapper C++ project for Dear ImGui and more.
 
 # Code example
 This is how you would create simple ImGui + ImPlot application.
+
+main.cpp
 ```C++
 #include <iostream>
 #include <imguiwrapper.hpp>   // Requires C++20
@@ -41,6 +43,8 @@ int main()
   def.window_height = 600;
   def.window_title = "Example app!";
   def.window_hints[GLFW_RESIZABLE] = GLFW_TRUE;   // Is set by default. This is only example of hints.
+  def.imgui_multiviewport = true;                 // Allow ImGui windows to be dragged out of the main window.
+  def.imgui_theme = ImWrap::ImGuiTheme::dark;
 
   try {
     Demo demo;
@@ -56,6 +60,43 @@ int main()
   return 0;
 }
 ```
+
+# Example meson config
+- Create `subprojects` directory.
+- Create `subprojects/imguiwrapper.hpp` file with contents:
+  ```
+  [wrap-git]
+  url = https://github.com/theretikgm/imguiwrapper
+  revision = head
+  depth = 1
+  
+  [provides]
+  imguiwrapper = imguiwrapper_dep
+  ```
+- Create `meson.build` file next to the `main.cpp` (from Code example)
+  ```meson
+  project('example', 'cpp', 
+    version : '0.1',
+    default_options : ['warning_level=3',
+                       'cpp_std=c++20'])
+  
+  deps = [
+    dependency('imguiwrapper', default_options : ['implot=enabled'])
+  ]
+  
+  executable('main', 'main.cpp', dependencies : deps)
+  ```
+  - To enable other libraries you would need to enable other options (by default they are disabled):
+    ```meson
+    dependency('imguiwrapper', 
+      default_options : [
+        'implot=enabled',
+        'nlohmann_json=enabled',
+        'glm=enabled',
+        'yaml-cpp=enabled']
+    )
+    ```
+- Thats all :)
 
 # Build Linux
 
