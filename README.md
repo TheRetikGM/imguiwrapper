@@ -1,18 +1,18 @@
 # Dear ImGui wrapper
 My wrapper C++ project for Dear ImGui and more.
 
-# Requirements
+## Requirements
 - meson
 - C++20
 
-# Includes
+## Includes
 - [Dear ImGui](https://github.com/ocornut/imgui)
 - [ImPlot](https://github.com/epezent/implot)
 - [Nlohmann's Json](https://github.com/nlohmann/json)
 - [YAML cpp](https://github.com/jbeder/yaml-cpp)
 - Glad with OpenGL 3.3 core support
 
-# Code example
+## Code example
 This is how you would create simple ImGui + ImPlot application.
 
 main.cpp
@@ -62,7 +62,7 @@ int main()
 }
 ```
 
-# Example meson config
+## Example meson config
 - Create `subprojects` directory.
 - Create `subprojects/imguiwrapper.hpp` file with contents:
   ```
@@ -99,12 +99,12 @@ int main()
     ```
 - Thats all :)
 
-# Build Linux
+## Build Linux
 
     meson setup build -Dbuildtype=release
     meson compile -C build
 
-# Build Windows
+## Build Windows
 Install:
   - meson using python's pip (winget install python3)
   - Windows Visual Studio C++ build tools
