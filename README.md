@@ -58,8 +58,9 @@ int main()
 ```
 
 # Build Linux
-  meson setup build -Dbuildtype=release
-  meson compile -C build
+
+    meson setup build -Dbuildtype=release
+    meson compile -C build
 
 # Build Windows
 Install:
@@ -67,5 +68,6 @@ Install:
   - Windows Visual Studio C++ build tools
 
 In Developer console run:
-  meson setup build
-  meson compile -C build -Dbuildtype=release
+
+    meson setup build
+    meson compile -C build -Dbuildtype=release
