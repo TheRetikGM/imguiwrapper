@@ -203,7 +203,7 @@ namespace ImWrap
     {
       // Update deltatime.
       this_tm = (float)glfwGetTime();
-      dt = last_tm - this_tm; 
+      dt = this_tm - last_tm;
       last_tm = this_tm;
 
       // Update ImGui frame.
