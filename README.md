@@ -71,7 +71,7 @@ int main()
   revision = head
   depth = 1
   
-  [provides]
+  [provide]
   imguiwrapper = imguiwrapper_dep
   ```
 - Create `meson.build` file next to the `main.cpp` (from Code example)
