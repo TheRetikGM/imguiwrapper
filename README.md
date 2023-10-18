@@ -64,7 +64,7 @@ int main()
 
 ## Example meson config
 - Create `subprojects` directory.
-- Create `subprojects/imguiwrapper.hpp` file with contents:
+- Create `subprojects/imguiwrapper.wrap` file with contents:
   ```
   [wrap-git]
   url = https://github.com/theretikgm/imguiwrapper
