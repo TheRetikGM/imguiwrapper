@@ -1,0 +1,12 @@
+[wrap-file]
+directory = xtl-0.6.12
+source_url = https://github.com/xtensor-stack/xtl/archive/0.6.12.tar.gz
+source_filename = xtl-0.6.12.tar.gz
+source_hash = 25a16958195f939e6fb7c8feccad89b3e450a18124be6aee119c69a1ee2b308c
+patch_filename = xtl_0.6.12-1_patch.zip
+patch_url = https://wrapdb.mesonbuild.com/v2/xtl_0.6.12-1/get_patch
+patch_hash = 36ebfc6656d025143877670dba79fecdece9e97bd8b717fcc44e29ab119eb2cf
+
+[provide]
+xtl = xtl_dep
+

@@ -8,6 +8,8 @@ subprojects/*
 !subprojects/yaml-cpp.wrap
 !subprojects/implot
 !subprojects/glfw.wrap
+!subprojects/xtensor.wrap
+!subprojects/xtl.wrap
 !subprojects/update_imgui.sh
 .vscode
 .vs

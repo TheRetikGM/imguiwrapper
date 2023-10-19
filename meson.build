@@ -12,6 +12,7 @@ deps = [
   dependency('nlohmann_json', required : get_option('nlohmann_json')),
   dependency('glm', required : get_option('glm')),
   dependency('implot', required : get_option('implot')),
+  dependency('xtensor', required : get_option('xtensor')),
   dependency('gl')
 ]
 
@@ -46,7 +47,7 @@ endif
 imguiwrapper_inc = inc
 imguiwrapper_dep = declare_dependency(
   compile_args : cppargs,
-  dependencies : deps, 
+  dependencies : deps,
   include_directories : inc
 )
 meson.override_dependency('imguiwrapper', imguiwrapper_dep)
