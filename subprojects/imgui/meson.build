@@ -1,6 +1,6 @@
 project('imgui', 'cpp', 
 	license : 'MIT', 
-	version : 'git-c191faf0ba478e9c58a69c63306986a21ebfb6e4', 
+	version : 'git-2a6d7b1eaa1851e5b53d8c7a361a8d54f5a9ae8c', 
 	meson_version : '>=0.54.0')
 
 include_dirs = include_directories('.', 'backends')

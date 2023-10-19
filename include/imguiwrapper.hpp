@@ -23,6 +23,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#define IMGUI_DEFINE_MATH_OPERATORS
 #include <imgui.h>
 #ifdef IMGUIWRAPPER_IMPLOT
   #include <implot.h>
@@ -41,9 +42,9 @@ namespace ImWrap
     uint32_t window_width = 800;
     uint32_t window_height = 600;
     std::string window_title = "ImGui wrapper!";
-    std::map<int, int> window_hints = { 
-      { GLFW_CONTEXT_VERSION_MAJOR, 3 },  
-      { GLFW_CONTEXT_VERSION_MINOR, 3 },  
+    std::map<int, int> window_hints = {
+      { GLFW_CONTEXT_VERSION_MAJOR, 3 },
+      { GLFW_CONTEXT_VERSION_MINOR, 3 },
       { GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE }
     };
     // Enable VSync.
@@ -51,8 +52,8 @@ namespace ImWrap
     int exit_key = GLFW_KEY_ESCAPE;
     // By default only exit key is handled. For the other keys, you can use ImGui functions.
     GLFWkeyfun custom_key_callback = nullptr;
-    
-    ImGuiTheme imgui_theme = ImGuiTheme::classic; 
+
+    ImGuiTheme imgui_theme = ImGuiTheme::classic;
     ImGuiConfigFlags imgui_config_flags = ImGuiConfigFlags_DockingEnable;
     // Allow imgui windows to be dragged outside of the current viewport.
     bool imgui_multiviewport = false;
@@ -79,7 +80,7 @@ namespace ImWrap
         Context::m_instance->m_windowHeight = height;
         glViewport(0, 0, width, height);
       }
-      
+
       static void error(int code, const char* description)
       {
         throw std::runtime_error("GLFW error! Code: " + std::to_string(code) + ". Desc: " + std::string(description));
@@ -120,7 +121,7 @@ namespace ImWrap
     uint32_t m_windowWidth = 0;
     uint32_t m_windowHeight = 0;
 
-    Context(const ContextDefinition& context_definition) 
+    Context(const ContextDefinition& context_definition)
       : m_def(context_definition)
       , m_windowWidth(m_def.window_width)
       , m_windowHeight(m_def.window_height)
@@ -138,7 +139,7 @@ namespace ImWrap
       m_Window = glfwCreateWindow(m_def.window_width, m_def.window_height, m_def.window_title.c_str(), NULL, NULL);
       if (!m_Window)
         throw std::runtime_error("Failed to create GLFW window.");
-      glfwSetKeyCallback(m_Window, m_def.custom_key_callback ? m_def.custom_key_callback : Callbacks::key); 
+      glfwSetKeyCallback(m_Window, m_def.custom_key_callback ? m_def.custom_key_callback : Callbacks::key);
       glfwSetFramebufferSizeCallback(m_Window, Callbacks::fb_size);
       glfwMakeContextCurrent(m_Window);
       glfwSwapInterval(m_def.swap_interval);
@@ -194,7 +195,7 @@ namespace ImWrap
       obj.OnCreate();
 
     float last_tm = 0.0f, this_tm = 0.0f;
-    float dt = 0.0f; 
+    float dt = 0.0f;
 
     glDisable(GL_DEPTH_TEST);
 
