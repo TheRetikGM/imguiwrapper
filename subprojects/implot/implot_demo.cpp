@@ -28,6 +28,7 @@
 #endif
 
 #include "implot.h"
+#ifndef IMGUI_DISABLE
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -1386,7 +1387,7 @@ void Demo_LegendOptions() {
 
     static int num_dummy_items = 25;
     ImGui::SliderInt("Num Dummy Items (Demo Scrolling)", &num_dummy_items, 0, 100);
-    
+
     if (ImPlot::BeginPlot("##Legend",ImVec2(-1,0))) {
         ImPlot::SetupLegend(loc, flags);
         static MyImPlot::WaveData data1(0.001, 0.2, 4, 0.2);
@@ -1405,11 +1406,11 @@ void Demo_LegendOptions() {
             char label[16];
             snprintf(label, sizeof(label), "Item %03d", i+4);
             ImPlot::PlotDummy(label);
-        }        
+        }
         ImPlot::EndPlot();
     }
-} 
-    
+}
+
 //-----------------------------------------------------------------------------
 
 void Demo_DragPoints() {
@@ -2477,3 +2478,5 @@ void PlotCandlestick(const char* label_id, const double* xs, const double* opens
 }
 
 } // namespace MyImplot
+
+#endif // #ifndef IMGUI_DISABLE
